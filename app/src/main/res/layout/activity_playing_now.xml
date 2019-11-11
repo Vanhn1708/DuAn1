@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/main_margin"
+    android:background="@color/item_color"
+    android:orientation="vertical"
+    android:padding="@dimen/main_margin"
+    tools:context=".NowPlayingActivity">
+
+    <ImageView
+        style="@style/NowPlayingStyle"
+        android:src="@drawable/now_playing" />
+
+    <TextView
+        android:id="@+id/item_first_line"
+        style="@style/NowPlayingTextStyle"
+        android:text="Line 1"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/item_second_line"
+        style="@style/NowPlayingTextStyle"
+        android:text="Line 2" />
+
+    <Button
+        android:id="@+id/play_button"
+        style="@style/PlayButtonStyle"
+        android:background="@drawable/play" />
+
+</LinearLayout>

@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">DuAn1</string>
+    <string name="category_albums">Albums</string>
+
+    <!-- Category name for artists [CHAR LIMIT=20] -->
+    <string name="category_artists">Artists</string>
+
+    <!-- Category name for Playlist text view [CHAR LIMIT=20] -->
+    <string name="playlist_text_view">Love</string>
+
+    <!-- Category name for tracks [CHAR LIMIT=20] -->
+    <string name="category_tracks">Tracks</string>
+
+    <!-- Category name for Now Playing screen [CHAR LIMIT=20] -->
+    <string name="category_now_playing">Now Playing</string>
+
+    <!-- First Album Screen [CHAR LIMIT=20] -->
+    <string name="first_album">So Good - Zara Larsson</string>
+
+    <!-- First Artist screen [CHAR LIMIT=20] -->
+    <string name="first_artist">Zara Larsson</string>
+
+    <!-- Category name for playlist [CHAR LIMIT=20] -->
+    <string name="category_playlist">Chill Playlist</string>
+</resources>

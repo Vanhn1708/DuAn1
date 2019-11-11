@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        style="@style/LayoutRawStyle"
+        android:paddingBottom="@dimen/main_margin">
+
+        <LinearLayout
+            style="@style/CategoryStyle"
+            android:layout_marginRight="@dimen/main_margin"
+            android:background="@color/category_albums"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tracks_text"
+                style="@style/CategoryTextStyle"
+                android:text="@string/category_tracks" />
+
+            <ImageView
+                android:id="@+id/tracks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/n" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/CategoryStyle"
+            android:background="@color/category_artists"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/artists_text"
+                style="@style/CategoryTextStyle"
+                android:text="@string/category_artists" />
+
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="8dp"
+                android:id="@+id/artists"
+                style="@style/CategoryImageStyle"
+                android:layout_width="140dp"
+                android:layout_height="240dp"
+                android:src="@drawable/ar" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout style="@style/LayoutRawStyle">
+
+
+        <LinearLayout
+            style="@style/CategoryStyle"
+            android:layout_marginRight="@dimen/main_margin"
+            android:background="@color/category_playlist"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/playlist_text"
+                style="@style/CategoryTextStyle"
+                android:text="@string/playlist_text_view" />
+
+
+            <ImageView
+                android:id="@+id/playlist"
+                style="@style/CategoryImageStyle"
+                android:src="@drawable/love" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/CategoryStyle"
+            android:layout_height="match_parent"
+            android:background="@color/category_tracks"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/albums_text"
+                style="@style/CategoryTextStyle"
+                android:text="@string/category_albums" />
+
+            <ImageView
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/albums"
+                style="@style/CategoryImageStyle"
+                android:src="@drawable/album" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

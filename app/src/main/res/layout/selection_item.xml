@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/main_margin"
+    android:background="@color/tan_background"
+    android:padding="@dimen/main_margin">
+
+    <LinearLayout style="@style/ItemLayoutStyle">
+
+        <TextView
+            android:id="@+id/first_line_text_view"
+            style="@style/ItemStyle"
+            android:text="line 1"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/second_line_text_view"
+            style="@style/ItemStyle"
+            android:text="line 2" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/play_image"
+        style="@style/PlayImageStyle" />
+
+</LinearLayout>
