@@ -81,7 +81,7 @@ public class TracksActivity extends AppCompatActivity {
         }
 
 
-//âmmmaamwacdddđ
+//Vanhn
         mySong = findSongs(Environment.getExternalStorageDirectory());
         items = new String[mySong.size()];
         for (int i = 0; i < mySong.size(); i++) {
