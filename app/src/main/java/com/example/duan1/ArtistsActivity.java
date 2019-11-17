@@ -47,14 +47,6 @@ public class ArtistsActivity extends AppCompatActivity {
         setContentView(R.layout.artist_activity);
 
         rvMusic = findViewById(R.id.rvMusic);
-        rvMusic.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent= new Intent(ArtistsActivity.this,ArtistListMusic.class);
-                startActivity(intent);
-                Log.e("abc", "ABC");
-            }
-        });
         loadMusic();
 //        initView();
 
