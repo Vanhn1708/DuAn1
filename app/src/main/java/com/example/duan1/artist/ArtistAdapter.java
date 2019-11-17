@@ -102,7 +102,7 @@ public class ArtistAdapter extends RecyclerView.Adapter<MusicHolder> {
 //            }
 //        });
     }
-
+//vanhn
     @Override
     public int getItemCount() {
         return list.size();
