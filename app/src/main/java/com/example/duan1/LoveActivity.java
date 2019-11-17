@@ -10,12 +10,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class PlaylistActivity extends AppCompatActivity {
+public class LoveActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.selection_list);
+        setContentView(R.layout.love_activity);
 
         // Create a list of items in Playlist category
 

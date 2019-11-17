@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             // The code in this method will be executed when the Playlist category is clicked on.
             @Override
             public void onClick(View view) {
-                Intent playlistIntent = new Intent(MainActivity.this, PlaylistActivity.class);
+                Intent playlistIntent = new Intent(MainActivity.this, LoveActivity.class);
                 startActivity(playlistIntent);
             }
         });

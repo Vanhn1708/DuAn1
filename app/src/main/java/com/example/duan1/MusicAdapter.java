@@ -1,6 +1,8 @@
 package com.example.duan1;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -19,12 +21,14 @@ import java.util.List;
 class MusicHolder extends RecyclerView.ViewHolder {
     TextView tvName, tvArtist;
     ImageView img1;
+    ImageView img2;
 
     public MusicHolder(@NonNull View itemView) {
         super(itemView);
         tvName = itemView.findViewById(R.id.tvName);
         tvArtist = itemView.findViewById(R.id.tvArtist);
         img1 = itemView.findViewById(R.id.img1);
+        img2 = itemView.findViewById(R.id.img2);
     }
 }
 
@@ -69,7 +73,28 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
                             Toast.makeText(context, "dsa", Toast.LENGTH_SHORT).show();
 
                         } else if (id == R.id.tools) {
-                            Toast.makeText(context, "dddsda", Toast.LENGTH_SHORT).show();
+                            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                            builder.setTitle("Xóa");
+                            builder.setMessage("Bạn có muốn xóa không?");
+                            builder.setCancelable(false);
+                            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    deleteNote(position);
+                                    Toast.makeText(context, "xóa thành công", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            });
+                            AlertDialog alertDialog = builder.create();
+                            alertDialog.show();
+
+                        } else if (id == R.id.tool1) {
+                            Toast.makeText(context, "them", Toast.LENGTH_SHORT).show();
                         }
                         return true;
                     }
@@ -115,5 +140,11 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
     }
 
     public void switchMusic(int position) {
+    }
+
+    private void deleteNote(int position) {
+//        sachDAO.deleteSachByID(list.get(position).getMaSach());
+        list.remove(position);
+        notifyDataSetChanged();
     }
 }
