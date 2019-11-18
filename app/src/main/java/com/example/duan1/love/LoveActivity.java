@@ -16,7 +16,6 @@ import java.util.ArrayList;
 public class LoveActivity extends AppCompatActivity {
     ImageView imgsinger;
     ImageView imglbum;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
