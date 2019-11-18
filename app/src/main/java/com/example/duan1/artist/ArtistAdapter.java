@@ -115,9 +115,4 @@ public class ArtistAdapter extends RecyclerView.Adapter<MusicHolder> {
     public void switchMusic(int position) {
     }
 
-    private void deleteNote(int position) {
-//        sachDAO.deleteSachByID(list.get(position).getMaSach());
-        list.remove(position);
-        notifyDataSetChanged();
-    }
 }
