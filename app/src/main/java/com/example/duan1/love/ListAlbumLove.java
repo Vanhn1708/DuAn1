@@ -7,7 +7,7 @@ import android.os.Bundle;
 import com.example.duan1.R;
 
 public class ListAlbumLove extends AppCompatActivity {
-
+//
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
