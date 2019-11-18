@@ -1,21 +1,20 @@
-package com.example.duan1.love;
+package com.example.duan1.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.duan1.R;
-
-import java.util.ArrayList;
+import com.example.duan1.love.ListAlbumLove;
+import com.example.duan1.love.ListMusicLove;
 
 public class LoveActivity extends AppCompatActivity {
     ImageView imgsinger;
     ImageView imglbum;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

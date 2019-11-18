@@ -1,4 +1,4 @@
-package com.example.duan1;
+package com.example.duan1.adapter;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -15,6 +15,10 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.duan1.model.PlayMedia;
+import com.example.duan1.R;
+import com.example.duan1.model.Music;
 
 import java.util.List;
 

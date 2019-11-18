@@ -1,4 +1,4 @@
-package com.example.duan1;
+package com.example.duan1.model;
 
 public class Music {
     public String name;

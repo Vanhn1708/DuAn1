@@ -1,37 +1,29 @@
-package com.example.duan1.artist;
+package com.example.duan1.adapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.LayoutInflater;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.duan1.ArtistListMusic;
-import com.example.duan1.ArtistsActivity;
-import com.example.duan1.MainActivity;
-import com.example.duan1.Music;
-import com.example.duan1.PlayMedia;
+import com.example.duan1.artist.ArtistListMusic;
+import com.example.duan1.model.PlayMedia;
 import com.example.duan1.R;
+import com.example.duan1.model.Artists;
 
 import java.util.List;
 
-class MusicHolder extends RecyclerView.ViewHolder {
+class ArtistHolder extends RecyclerView.ViewHolder {
     TextView tvName, tvArtist;
     ImageView img1;
     ImageView img2;
 
-    public MusicHolder(@NonNull View itemView) {
+    public ArtistHolder(@NonNull View itemView) {
         super(itemView);
         tvName = itemView.findViewById(R.id.tvName);
         tvArtist = itemView.findViewById(R.id.tvArtist);
@@ -41,7 +33,7 @@ class MusicHolder extends RecyclerView.ViewHolder {
 }
 
 
-public class ArtistAdapter extends RecyclerView.Adapter<MusicHolder> {
+public class ArtistAdapter extends RecyclerView.Adapter<ArtistHolder> {
     Context context;
     List<Artists> list;
     PlayMedia playMedia;
@@ -56,14 +48,14 @@ public class ArtistAdapter extends RecyclerView.Adapter<MusicHolder> {
 
     @NonNull
     @Override
-    public MusicHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new MusicHolder(LayoutInflater.from(context).inflate(R.layout.item_artist, parent, false));
+    public ArtistHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ArtistHolder(LayoutInflater.from(context).inflate(R.layout.item_artist, parent, false));
     }
 
     int id = 0;
 
     @Override
-    public void onBindViewHolder(@NonNull MusicHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ArtistHolder holder, final int position) {
         final Artists artist = list.get(position);
 //        holder.tvName.setText(artist.name);
         holder.itemView.setOnClickListener(new View.OnClickListener() {

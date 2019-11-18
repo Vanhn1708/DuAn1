@@ -1,8 +1,10 @@
-package com.example.duan1;
+package com.example.duan1.artist;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.duan1.R;
 
 public class ArtistListMusic extends AppCompatActivity {
 

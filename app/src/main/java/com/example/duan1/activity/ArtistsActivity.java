@@ -1,4 +1,4 @@
-package com.example.duan1;
+package com.example.duan1.activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -19,14 +19,18 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.duan1.artist.Artists;
+import com.example.duan1.model.Music;
+import com.example.duan1.model.PlayMedia;
+import com.example.duan1.R;
+import com.example.duan1.adapter.ArtistAdapter;
+import com.example.duan1.model.Artists;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class TracksActivity extends AppCompatActivity {
+public class ArtistsActivity extends AppCompatActivity {
     private TextView tvName;
     private SeekBar seekBar;
     private TextView tvStart;
@@ -41,17 +45,16 @@ public class TracksActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.selection_list);
-        imgPre = findViewById(R.id.imgPre);
-        imgNext = findViewById(R.id.imgNext);
+        setContentView(R.layout.artist_activity);
+
         rvMusic = findViewById(R.id.rvMusic);
         loadMusic();
-        initView();
+//        initView();
 
     }
 
-    MusicAdapter adapter;
-    List<Music> list = new ArrayList<>();
+    ArtistAdapter adapter;
+    List<Artists> list = new ArrayList<>();
 
     private void loadMusic() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -59,32 +62,34 @@ public class TracksActivity extends AppCompatActivity {
                 requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
             }
         } else {
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null, null);
-                String[] projection = {MediaStore.Audio.Media.TITLE, MediaStore.Audio.Media.DATA, MediaStore.Audio.Media.ARTIST};
+                String[] projection = {MediaStore.Audio.Media.DATA, MediaStore.Audio.Media.ARTIST};
                 if (cursor.moveToFirst()) {
                     do {
-                        list.add(new Music(cursor.getString(cursor.getColumnIndex(projection[0]))
-                                , cursor.getString(cursor.getColumnIndex(projection[1]))
-                                , cursor.getString(cursor.getColumnIndex(projection[2]))));
+                        list.add(new Artists(
+                                cursor.getString(cursor.getColumnIndex(projection[0]))
+                                , cursor.getString(cursor.getColumnIndex(projection[1]))));
                     } while (cursor.moveToNext());
                     cursor.close();
-                    adapter = new MusicAdapter(TracksActivity.this, list, imgPre, imgNext);
-                    adapter.setOnChangeMusic(new PlayMedia() {
+                    adapter = new ArtistAdapter(ArtistsActivity.this, list, imgPre, imgNext);
+                    adapter.setOnChangeMusic1(new PlayMedia() {
+
+
                         @Override
-                        public void onChangeMusic(Music music) {
+                        public void onChangeMusic1(Artists artists) {
                             try {
                                 if (isCreated) {
                                     mediaPlayer.stop();
                                     mediaPlayer.release();
                                 }
                                 isPlaying = false;
-                                tvName.setText(music.name);
+//                                tvName.setText(artists.name);
                                 mediaPlayer = new MediaPlayer();
-                                mediaPlayer.setDataSource(music.path);
+                                mediaPlayer.setDataSource(artists.path);
                                 mediaPlayer.prepare();
                                 seekBar.setMax(mediaPlayer.getDuration());
-                                onPlay(null);
+//                                onPlay(null);
                                 isCreated = true;
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -92,13 +97,14 @@ public class TracksActivity extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onChangeMusic1(Artists artist) {
+                        public void onChangeMusic(Music music) {
 
                         }
                     });
                     Log.e("count", list.size() + "");
                     rvMusic.setAdapter(adapter);
                     rvMusic.setLayoutManager(new LinearLayoutManager(this));
+
                 }
             }
         }
@@ -191,6 +197,4 @@ public class TracksActivity extends AppCompatActivity {
             mediaPlayer.release();
         }
     }
-
 }
-

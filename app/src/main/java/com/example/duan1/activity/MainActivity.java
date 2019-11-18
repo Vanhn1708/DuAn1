@@ -1,4 +1,4 @@
-package com.example.duan1;
+package com.example.duan1.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.duan1.love.LoveActivity;
+import com.example.duan1.R;
 
 public class MainActivity extends AppCompatActivity {
 

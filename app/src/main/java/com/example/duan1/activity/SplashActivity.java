@@ -1,10 +1,13 @@
-package com.example.duan1;
+package com.example.duan1.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.duan1.R;
+import com.example.duan1.activity.MainActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

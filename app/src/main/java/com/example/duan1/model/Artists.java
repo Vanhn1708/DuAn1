@@ -1,4 +1,4 @@
-package com.example.duan1.artist;
+package com.example.duan1.model;
 
 public class Artists {
 

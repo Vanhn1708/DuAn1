@@ -1,4 +1,4 @@
-package com.example.duan1;
+package com.example.duan1.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.duan1.R;
 
 import java.util.ArrayList;
 

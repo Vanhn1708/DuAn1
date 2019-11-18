@@ -1,7 +1,6 @@
-package com.example.duan1;
+package com.example.duan1.activity;
 
 import android.Manifest;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.media.MediaPlayer;
@@ -11,7 +10,6 @@ import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -21,15 +19,18 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.duan1.artist.ArtistAdapter;
-import com.example.duan1.artist.Artists;
+import com.example.duan1.adapter.MusicAdapter;
+import com.example.duan1.model.PlayMedia;
+import com.example.duan1.R;
+import com.example.duan1.model.Artists;
+import com.example.duan1.model.Music;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class ArtistsActivity extends AppCompatActivity {
+public class TracksActivity extends AppCompatActivity {
     private TextView tvName;
     private SeekBar seekBar;
     private TextView tvStart;
@@ -44,16 +45,17 @@ public class ArtistsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.artist_activity);
-
+        setContentView(R.layout.selection_list);
+        imgPre = findViewById(R.id.imgPre);
+        imgNext = findViewById(R.id.imgNext);
         rvMusic = findViewById(R.id.rvMusic);
         loadMusic();
-//        initView();
+        initView();
 
     }
 
-    ArtistAdapter adapter;
-    List<Artists> list = new ArrayList<>();
+    MusicAdapter adapter;
+    List<Music> list = new ArrayList<>();
 
     private void loadMusic() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
@@ -61,34 +63,32 @@ public class ArtistsActivity extends AppCompatActivity {
                 requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
             }
         } else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
                 Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null, null);
-                String[] projection = {MediaStore.Audio.Media.DATA, MediaStore.Audio.Media.ARTIST};
+                String[] projection = {MediaStore.Audio.Media.TITLE, MediaStore.Audio.Media.DATA, MediaStore.Audio.Media.ARTIST};
                 if (cursor.moveToFirst()) {
                     do {
-                        list.add(new Artists(
-                                cursor.getString(cursor.getColumnIndex(projection[0]))
-                                , cursor.getString(cursor.getColumnIndex(projection[1]))));
+                        list.add(new Music(cursor.getString(cursor.getColumnIndex(projection[0]))
+                                , cursor.getString(cursor.getColumnIndex(projection[1]))
+                                , cursor.getString(cursor.getColumnIndex(projection[2]))));
                     } while (cursor.moveToNext());
                     cursor.close();
-                    adapter = new ArtistAdapter(ArtistsActivity.this, list, imgPre, imgNext);
-                    adapter.setOnChangeMusic1(new PlayMedia() {
-
-
+                    adapter = new MusicAdapter(TracksActivity.this, list, imgPre, imgNext);
+                    adapter.setOnChangeMusic(new PlayMedia() {
                         @Override
-                        public void onChangeMusic1(Artists artists) {
+                        public void onChangeMusic(Music music) {
                             try {
                                 if (isCreated) {
                                     mediaPlayer.stop();
                                     mediaPlayer.release();
                                 }
                                 isPlaying = false;
-//                                tvName.setText(artists.name);
+                                tvName.setText(music.name);
                                 mediaPlayer = new MediaPlayer();
-                                mediaPlayer.setDataSource(artists.path);
+                                mediaPlayer.setDataSource(music.path);
                                 mediaPlayer.prepare();
                                 seekBar.setMax(mediaPlayer.getDuration());
-//                                onPlay(null);
+                                onPlay(null);
                                 isCreated = true;
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -96,14 +96,13 @@ public class ArtistsActivity extends AppCompatActivity {
                         }
 
                         @Override
-                        public void onChangeMusic(Music music) {
+                        public void onChangeMusic1(Artists artist) {
 
                         }
                     });
                     Log.e("count", list.size() + "");
                     rvMusic.setAdapter(adapter);
                     rvMusic.setLayoutManager(new LinearLayoutManager(this));
-
                 }
             }
         }
@@ -196,4 +195,6 @@ public class ArtistsActivity extends AppCompatActivity {
             mediaPlayer.release();
         }
     }
+
 }
+
