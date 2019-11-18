@@ -63,11 +63,11 @@ public class ArtistsActivity extends AppCompatActivity {
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 Cursor cursor = getContentResolver().query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null, null);
-                String[] projection = { MediaStore.Audio.Media.DATA, MediaStore.Audio.Media.ARTIST};
+                String[] projection = {MediaStore.Audio.Media.DATA, MediaStore.Audio.Media.ARTIST};
                 if (cursor.moveToFirst()) {
                     do {
                         list.add(new Artists(
-                                 cursor.getString(cursor.getColumnIndex(projection[0]))
+                                cursor.getString(cursor.getColumnIndex(projection[0]))
                                 , cursor.getString(cursor.getColumnIndex(projection[1]))));
                     } while (cursor.moveToNext());
                     cursor.close();
@@ -88,7 +88,7 @@ public class ArtistsActivity extends AppCompatActivity {
                                 mediaPlayer.setDataSource(artists.path);
                                 mediaPlayer.prepare();
                                 seekBar.setMax(mediaPlayer.getDuration());
-                                onPlay(null);
+//                                onPlay(null);
                                 isCreated = true;
                             } catch (IOException e) {
                                 e.printStackTrace();
@@ -101,8 +101,8 @@ public class ArtistsActivity extends AppCompatActivity {
                         }
                     });
                     Log.e("count", list.size() + "");
-               rvMusic.setAdapter(adapter);
-                 rvMusic.setLayoutManager(new LinearLayoutManager(this));
+                    rvMusic.setAdapter(adapter);
+                    rvMusic.setLayoutManager(new LinearLayoutManager(this));
 
                 }
             }
