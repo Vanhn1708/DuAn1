@@ -13,6 +13,7 @@
         <activity android:name=".love.ListAlbumLove"></activity>
         <activity android:name=".love.ListMusicLove" />
         <activity android:name=".artist.ArtistListMusic" />
+        <activity android:name=".activity.CategoryMusic" />
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
