@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1.artist.ArtistListMusic;
+
 import com.example.duan1.model.PlayMedia;
 import com.example.duan1.R;
 import com.example.duan1.model.Artists;
@@ -27,7 +28,7 @@ class ArtistHolder extends RecyclerView.ViewHolder {
         super(itemView);
         tvName = itemView.findViewById(R.id.tvName);
         tvArtist = itemView.findViewById(R.id.tvArtist);
-//        img1 = itemView.findViewById(R.id.img1);
+        img1 = itemView.findViewById(R.id.img1);
         img2 = itemView.findViewById(R.id.img2);
     }
 }
@@ -37,13 +38,13 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistHolder> {
     Context context;
     List<Artists> list;
     PlayMedia playMedia;
-//    ImageView imgPre, imgNext;
+    ImageView imgPre, imgNext;
 
     public ArtistAdapter(Context context, List<Artists> list, ImageView imgPre, ImageView imgNext) {
         this.context = context;
         this.list = list;
-//        this.imgNext = imgNext;
-//        this.imgPre = imgPre;
+        this.imgNext = imgNext;
+        this.imgPre = imgPre;
     }
 
     @NonNull
@@ -57,12 +58,12 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistHolder> {
     @Override
     public void onBindViewHolder(@NonNull ArtistHolder holder, final int position) {
         final Artists artist = list.get(position);
-//        holder.tvName.setText(artist.name);
+        //       holder.tvName.setText(artist.name);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ArtistListMusic.class);
-               context.startActivity(intent);
+                context.startActivity(intent);
             }
         });
         holder.tvArtist.setText(artist.artist);

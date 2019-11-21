@@ -73,10 +73,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         int id = item.getItemId();
-                        if (id == R.id.settings) {
-                            Toast.makeText(context, "dsa", Toast.LENGTH_SHORT).show();
-
-                        } else if (id == R.id.tools) {
+                         if (id == R.id.tools) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
                             builder.setTitle("Xóa");
                             builder.setMessage("Bạn có muốn xóa không?");

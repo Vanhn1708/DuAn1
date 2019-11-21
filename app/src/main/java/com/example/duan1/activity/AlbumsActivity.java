@@ -17,7 +17,7 @@ public class AlbumsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.selection_list);
+
 
         // Create a list of items in Albums Category
 

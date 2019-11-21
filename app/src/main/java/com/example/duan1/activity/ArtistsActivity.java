@@ -78,22 +78,7 @@ public class ArtistsActivity extends AppCompatActivity {
 
                         @Override
                         public void onChangeMusic1(Artists artists) {
-                            try {
-                                if (isCreated) {
-                                    mediaPlayer.stop();
-                                    mediaPlayer.release();
-                                }
-                                isPlaying = false;
-//                                tvName.setText(artists.name);
-                                mediaPlayer = new MediaPlayer();
-                                mediaPlayer.setDataSource(artists.path);
-                                mediaPlayer.prepare();
-                                seekBar.setMax(mediaPlayer.getDuration());
-//                                onPlay(null);
-                                isCreated = true;
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+
                         }
 
                         @Override
@@ -138,37 +123,6 @@ public class ArtistsActivity extends AppCompatActivity {
 
     private double startTime, finalTime;
 
-    public void onPlay(View view) {
-        if (isCreated) {
-            if (isPlaying) {
-                seekBar.setEnabled(false);
-                mediaPlayer.pause();
-                imgPlay.setImageResource(android.R.drawable.ic_media_play);
-                isPlaying = false;
-            } else {
-                isPlaying = true;
-                seekBar.setEnabled(true);
-                mediaPlayer.start();
-                finalTime = mediaPlayer.getDuration();
-                startTime = mediaPlayer.getCurrentPosition();
-                tvStart.setText(miliesToString(startTime));
-                tvEnd.setText(miliesToString(finalTime));
-                seekBar.setProgress((int) startTime);
-                myHanler.postDelayed(UpdateSongTime, 100);
-                imgPlay.setImageResource(android.R.drawable.ic_media_pause);
-            }
-        }
-    }
-
-    private Handler myHanler = new Handler();
-    private Runnable UpdateSongTime = new Runnable() {
-        @Override
-        public void run() {
-            startTime = mediaPlayer.getCurrentPosition();
-            seekBar.setProgress((int) startTime);
-            myHanler.postDelayed(this, 100);
-        }
-    };
 
 
     public String miliesToString(double time) {
@@ -183,7 +137,7 @@ public class ArtistsActivity extends AppCompatActivity {
     public void onStop(View view) {
         if (isCreated) {
             isPlaying = true;
-            onPlay(null);
+//            onPlay(null);
             mediaPlayer.pause();
             mediaPlayer.seekTo(0);
         }
