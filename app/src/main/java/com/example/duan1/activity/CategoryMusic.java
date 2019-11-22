@@ -15,6 +15,7 @@ import com.example.duan1.model.Music;
 import com.example.duan1.model.Single;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,23 +55,25 @@ public class CategoryMusic extends AppCompatActivity {
         for (int i = 0; i < musicList.size(); i++) {
 
             MediaMetadataRetriever mmr = new MediaMetadataRetriever();
-            mmr.setDataSource(musicList.get(i).getPath());
-            String genre = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE);
-            String single = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
-            String nameSong = mySongs.get(i).getName().replace(".mp3", "");
-            Single single1 = new Single();
-            single1.setNameSong(nameSong);
-            single1.setSingle(single);
-            single1.setGenre(genre);
-            if (s.equals(genre)){
-                strings.add(single1);
-            }else {
-                continue;
+            try {
+                mmr.setDataSource(musicList.get(i).getPath());
+                String genre = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE);
+                String single = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
+                String nameSong = mySongs.get(i).getName().replace(".mp3", "");
+                Single single1 = new Single();
+                single1.setNameSong(nameSong);
+                single1.setSingle(single);
+                single1.setGenre(genre);
+                if (s.equals(genre)){
+                    strings.add(single1);
+                }else {
+                    continue;
+                }
+                categoryAdapter =new CategoryAdapter(this,strings);
+                rccView.setAdapter(categoryAdapter);
+            }catch (Exception e){
+                e.getMessage();
             }
-            categoryAdapter =new CategoryAdapter(this,strings);
-            rccView.setAdapter(categoryAdapter);
-
-
 
 
 //            if(strings.size()==0){

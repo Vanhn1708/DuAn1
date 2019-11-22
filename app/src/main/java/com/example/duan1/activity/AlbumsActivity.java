@@ -1,19 +1,17 @@
 package com.example.duan1.activity;
 
-import android.content.Intent;
 import android.media.MediaMetadataRetriever;
 import android.os.Bundle;
 import android.os.Environment;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1.AdapterAlbum.AlbumAdapter;
+import com.example.duan1.PresenterView;
+import com.example.duan1.Presenterr;
 import com.example.duan1.R;
 import com.example.duan1.adapter.ArtistAdapter;
 import com.example.duan1.model.Music;
@@ -23,13 +21,14 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AlbumsActivity extends AppCompatActivity {
+public class AlbumsActivity extends AppCompatActivity /* implements PresenterView */{
     private List<File> mySongs;
     private List<Music> musicList = new ArrayList<>();
     private List<Single> strings = new ArrayList<>();
     private ArtistAdapter artistAdapter;
     private RecyclerView rccView;
     private AlbumAdapter albumAdapter;
+    private Presenterr presenterr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +36,9 @@ public class AlbumsActivity extends AppCompatActivity {
         rccView = findViewById(R.id.rccVieww);
         rccView.setLayoutManager(new LinearLayoutManager(this));
         rccView.setHasFixedSize(true);
-
+//        presenterr = new Presenterr(this,AlbumsActivity.this);
+//        presenterr.GetSong();
         mySongs = findSongs(Environment.getExternalStorageDirectory());
-
         for (int i = 0; i < mySongs.size(); i++) {
             Music music = new Music();
             music.setName(mySongs.get(i).getName().replace(".mp3", ""));
@@ -50,30 +49,53 @@ public class AlbumsActivity extends AppCompatActivity {
 
         for (int i = 0; i < musicList.size(); i++) {
 
-            MediaMetadataRetriever md = new MediaMetadataRetriever();
-            md.setDataSource(musicList.get(i).getPath());
-            String genre = md.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE);
-            Single single = new Single();
-            single.setGenre(genre);
-            if(strings.size()==0){
-                strings.add(single);
-            }else {
-                if (strings.get(0).getGenre().equals(genre)){
-                    Toast.makeText(AlbumsActivity.this, "dsadsa",Toast.LENGTH_SHORT).show();
+
+            try {
+                MediaMetadataRetriever md = new MediaMetadataRetriever();
+                Log.e("errpe",musicList.get(i).getPath() );
+                if (musicList.get(i).getPath().equals("/storage/emulated/0/Android/data/com.google.android.zdt.data/com.zing.mp3")){
+                    continue;
                 }else {
-                    strings.add(single);
+                    md.setDataSource(musicList.get(i).getPath());
+                    String genre = md.extractMetadata(MediaMetadataRetriever.METADATA_KEY_GENRE);
+                    Single single = new Single();
+                    single.setGenre(genre);
+                    if(strings.size()==0){
+                        strings.add(single);
+                    }else {
+                        try {
+
+                            if (strings.get(0).getGenre() != null&&strings.get(0).getGenre().equals(genre)){
+                                continue;
+                            }else {
+                                strings.add(single);
+                            }
+                        }catch (NullPointerException e){
+                            Log.d("error",e.getMessage());
+                            e.getMessage();
+                        }
+
+                    }
                 }
+
+            }catch (IllegalArgumentException e){
+                e.getMessage();
             }
 
-
         }
-
 
         albumAdapter =new AlbumAdapter(this,strings);
         rccView.setAdapter(albumAdapter);
 
+
     }
 
+//    @Override
+//    public void data(ArrayList<File> files) {
+//        this.mySongs = files;
+//
+//
+//    }
 
 
     public ArrayList<File> findSongs(File root) {
