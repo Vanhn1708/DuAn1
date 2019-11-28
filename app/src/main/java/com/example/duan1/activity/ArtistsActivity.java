@@ -50,7 +50,6 @@ public class ArtistsActivity extends AppCompatActivity {
 
         rvMusic = findViewById(R.id.rvMusic);
         loadMusic();
-//        initView();
 
     }
 
