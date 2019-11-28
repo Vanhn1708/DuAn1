@@ -33,17 +33,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAlbum> {
         Single s = strings.get(position);
         holder.tvSingle.setText("Single: "+s.getSingle());
         holder.tvNamSong.setText("Name Song: "+s.getNameSong());
-//        holder.tvSingle.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(context, CategoryMusic.class);
-//                Bundle bundle = new Bundle();
-//                bundle.putString("theLoai",holder.tvSingle.getText().toString());
-//                intent.putExtras(bundle);
-//                context.startActivity(intent);
-//
-//            }
-//        });
 
     }
 

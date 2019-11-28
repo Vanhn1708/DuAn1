@@ -23,16 +23,16 @@ import com.example.duan1.model.Music;
 import java.util.List;
 
 class MusicHolder extends RecyclerView.ViewHolder {
-    TextView tvName, tvArtist;
-    ImageView img1;
-    ImageView img2;
+    TextView title, detail;
+    ImageView popupMenuBtn;
+    ImageView albumArt;
 
     public MusicHolder(@NonNull View itemView) {
         super(itemView);
-        tvName = itemView.findViewById(R.id.tvName);
-        tvArtist = itemView.findViewById(R.id.tvArtist);
-        img1 = itemView.findViewById(R.id.img1);
-        img2 = itemView.findViewById(R.id.img2);
+        title = itemView.findViewById(R.id.title);
+        detail = itemView.findViewById(R.id.detail);
+        popupMenuBtn = itemView.findViewById(R.id.popupMenuBtn);
+        albumArt = itemView.findViewById(R.id.albumArt);
     }
 }
 
@@ -61,9 +61,9 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
     @Override
     public void onBindViewHolder(@NonNull MusicHolder holder, final int position) {
         final Music music = list.get(position);
-        holder.tvName.setText(music.name);
-        holder.tvArtist.setText(music.artist);
-        holder.img1.setOnClickListener(new View.OnClickListener() {
+        holder.title.setText(music.name);
+        holder.detail.setText(music.artist);
+        holder.popupMenuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 PopupMenu popup = new PopupMenu(context, v);

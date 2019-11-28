@@ -28,4 +28,5 @@
 
     <!-- Background color for the Now PLaying Image -->
     <color name="now_playing_color">#81030d</color>
+    <color name="list_divider">#58d1d1d1</color>
 </resources>

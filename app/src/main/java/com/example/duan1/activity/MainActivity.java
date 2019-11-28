@@ -22,10 +22,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView tracks = (ImageView) findViewById(R.id.tracks);
-        ImageView artists = (ImageView) findViewById(R.id.artists);
-        ImageView playlist = (ImageView) findViewById(R.id.playlist);
-        ImageView albums = (ImageView) findViewById(R.id.albums);
+        ImageView tracks = findViewById(R.id.tracks);
+        ImageView artists = findViewById(R.id.artists);
+        ImageView playlist = findViewById(R.id.playlist);
+        ImageView albums = findViewById(R.id.albums);
 
 
         tracks.setOnClickListener(new View.OnClickListener() {
@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this, AlbumsActivity.class);
                 if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                     ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 11);
-                }  else {
+                } else {
                     if (Build.VERSION.SDK_INT < 19) {
                         startActivity(intent);
                     } else {

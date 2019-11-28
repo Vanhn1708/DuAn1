@@ -90,12 +90,6 @@ public class AlbumsActivity extends AppCompatActivity /* implements PresenterVie
 
     }
 
-//    @Override
-//    public void data(ArrayList<File> files) {
-//        this.mySongs = files;
-//
-//
-//    }
 
 
     public ArrayList<File> findSongs(File root) {

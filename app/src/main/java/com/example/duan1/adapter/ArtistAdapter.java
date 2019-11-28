@@ -20,16 +20,16 @@ import com.example.duan1.model.Artists;
 import java.util.List;
 
 class ArtistHolder extends RecyclerView.ViewHolder {
-    TextView tvName, tvArtist;
+    TextView tvName, title;
     ImageView img1;
-    ImageView img2;
+    ImageView image;
 
     public ArtistHolder(@NonNull View itemView) {
         super(itemView);
         tvName = itemView.findViewById(R.id.tvName);
-        tvArtist = itemView.findViewById(R.id.tvArtist);
-        img1 = itemView.findViewById(R.id.img1);
-        img2 = itemView.findViewById(R.id.img2);
+        title = itemView.findViewById(R.id.title);
+
+        image = itemView.findViewById(R.id.image);
     }
 }
 
@@ -58,7 +58,6 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistHolder> {
     @Override
     public void onBindViewHolder(@NonNull ArtistHolder holder, final int position) {
         final Artists artist = list.get(position);
-        //       holder.tvName.setText(artist.name);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,34 +65,8 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistHolder> {
                 context.startActivity(intent);
             }
         });
-        holder.tvArtist.setText(artist.artist);
+        holder.title.setText(artist.artist);
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                playMedia.onChangeMusic1(artist);
-//                id = position;
-//            }
-//        });
-
-//        imgPre.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (id != 0) {
-//                    playMedia.onChangeMusic1(list.get(id - 1));
-//                    id--;
-//                }
-//            }
-//        });
-//        imgNext.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (id < list.size() - 1) {
-//                    playMedia.onChangeMusic1(list.get(id + 1));
-//                    id++;
-//                }
-//            }
-//        });
     }
 
     @Override

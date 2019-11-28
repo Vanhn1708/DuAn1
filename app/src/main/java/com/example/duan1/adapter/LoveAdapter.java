@@ -27,7 +27,6 @@ class LoveHolder extends RecyclerView.ViewHolder {
     public LoveHolder(@NonNull View itemView) {
         super(itemView);
         tvName = itemView.findViewById(R.id.tvName);
-        tvArtist = itemView.findViewById(R.id.tvArtist);
         img1 = itemView.findViewById(R.id.img1);
         img2 = itemView.findViewById(R.id.img2);
     }

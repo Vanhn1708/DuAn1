@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -88,38 +89,38 @@ public class ArtistsActivity extends AppCompatActivity {
                     });
                     Log.e("count", list.size() + "");
                     rvMusic.setAdapter(adapter);
-                    rvMusic.setLayoutManager(new LinearLayoutManager(this));
+                    rvMusic.setLayoutManager(new GridLayoutManager(this,2));
 
                 }
             }
         }
     }
 
-    private void initView() {
-        tvName = findViewById(R.id.tvName);
-        seekBar = findViewById(R.id.seekBar);
-        tvStart = findViewById(R.id.tvStart);
-        tvEnd = findViewById(R.id.tvEnd);
-        imgPlay = findViewById(R.id.imgPlay);
-        seekBar.setEnabled(false);
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                tvStart.setText(miliesToString(progress));
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                mediaPlayer.seekTo(seekBar.getProgress());
-                startTime = seekBar.getProgress();
-            }
-        });
-    }
+//    private void initView() {
+//        tvName = findViewById(R.id.tvName);
+//        seekBar = findViewById(R.id.seekBar);
+//        tvStart = findViewById(R.id.tvStart);
+//        tvEnd = findViewById(R.id.tvEnd);
+//        imgPlay = findViewById(R.id.imgPlay);
+//        seekBar.setEnabled(false);
+//        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+//            @Override
+//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+//                tvStart.setText(miliesToString(progress));
+//            }
+//
+//            @Override
+//            public void onStartTrackingTouch(SeekBar seekBar) {
+//
+//            }
+//
+//            @Override
+//            public void onStopTrackingTouch(SeekBar seekBar) {
+//                mediaPlayer.seekTo(seekBar.getProgress());
+//                startTime = seekBar.getProgress();
+//            }
+//        });
+//    }
 
     private double startTime, finalTime;
 

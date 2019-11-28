@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context=".activity.TracksActivity">
     <TextView
+        android:textColor="#f00000"
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

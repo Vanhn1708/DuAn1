@@ -9,5 +9,5 @@ public interface PlayMedia {
 
     void onChangeMusic1(Artists artist);
 
-//    void onChangeMusic1(Artists music);
+
 }
