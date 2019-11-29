@@ -17,7 +17,6 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duan1.model.Music;
@@ -88,7 +87,7 @@ public class ArtistsActivity extends AppCompatActivity {
                     });
                     Log.e("count", list.size() + "");
                     rvMusic.setAdapter(adapter);
-                    rvMusic.setLayoutManager(new GridLayoutManager(this,2));
+                    rvMusic.setLayoutManager(new GridLayoutManager(this, 2));
 
                 }
             }
@@ -122,7 +121,6 @@ public class ArtistsActivity extends AppCompatActivity {
 //    }
 
     private double startTime, finalTime;
-
 
 
     public String miliesToString(double time) {

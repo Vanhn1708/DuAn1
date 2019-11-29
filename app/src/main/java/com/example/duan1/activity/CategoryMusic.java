@@ -30,15 +30,13 @@ public class CategoryMusic extends AppCompatActivity {
     private String s;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category_music);
         Bundle bundle = getIntent().getExtras();
         s = bundle.getString("theLoai");
-        setTitle("Thể loại "+ s);
+        setTitle("Thể loại " + s);
         rccView = (RecyclerView) findViewById(R.id.rccViewa);
         layoutManager = new LinearLayoutManager(this);
         rccView.setLayoutManager(layoutManager);
@@ -64,31 +62,19 @@ public class CategoryMusic extends AppCompatActivity {
                 single1.setNameSong(nameSong);
                 single1.setSingle(single);
                 single1.setGenre(genre);
-                if (s.equals(genre)){
+                if (s.equals(genre)) {
                     strings.add(single1);
-                }else {
+                } else {
                     continue;
                 }
-                categoryAdapter =new CategoryAdapter(this,strings);
+                categoryAdapter = new CategoryAdapter(this, strings);
                 rccView.setAdapter(categoryAdapter);
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.getMessage();
             }
 
 
-//            if(strings.size()==0){
-//                strings.add(single);
-//            }else {
-//                if (strings.get(0).getGenre().equals(genre)){
-//                    Toast.makeText(CategoryMusic.this, "dsadsa",Toast.LENGTH_SHORT).show();
-//                }else {
-//                    strings.add(single);
-//                }
-//            }
-
-
         }
-
 
 
     }

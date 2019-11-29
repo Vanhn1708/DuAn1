@@ -2,6 +2,7 @@ package com.example.duan1.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,6 +63,9 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ArtistListMusic.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("nameSinger",artist.artist);
+                intent.putExtras(bundle);
                 context.startActivity(intent);
             }
         });

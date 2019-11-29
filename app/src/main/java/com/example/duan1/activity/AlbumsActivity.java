@@ -25,10 +25,8 @@ public class AlbumsActivity extends AppCompatActivity /* implements PresenterVie
     private List<File> mySongs;
     private List<Music> musicList = new ArrayList<>();
     private List<Single> strings = new ArrayList<>();
-    private ArtistAdapter artistAdapter;
     private RecyclerView rccView;
     private AlbumAdapter albumAdapter;
-    private Presenterr presenterr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +44,7 @@ public class AlbumsActivity extends AppCompatActivity /* implements PresenterVie
             musicList.add(music);
         }
 
-
         for (int i = 0; i < musicList.size(); i++) {
-
 
             try {
                 MediaMetadataRetriever md = new MediaMetadataRetriever();

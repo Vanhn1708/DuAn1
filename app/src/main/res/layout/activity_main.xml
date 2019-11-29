@@ -43,12 +43,12 @@
                 android:text="@string/category_artists" />
 
             <ImageView
-                android:layout_marginRight="5dp"
-                android:layout_marginLeft="8dp"
                 android:id="@+id/artists"
                 style="@style/CategoryImageStyle"
                 android:layout_width="140dp"
-                android:layout_height="240dp"
+                android:layout_height="255dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="5dp"
                 android:src="@drawable/ar" />
 
         </LinearLayout>
