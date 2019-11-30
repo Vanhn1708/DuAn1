@@ -3,6 +3,7 @@ package com.example.duan1.adapter;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,6 +17,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duan1.MusicSqlite;
+import com.example.duan1.love.ListMusicLove;
 import com.example.duan1.model.PlayMedia;
 import com.example.duan1.R;
 import com.example.duan1.model.Music;
@@ -95,6 +98,11 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
                             alertDialog.show();
 
                         } else if (id == R.id.tool1) {
+                             MusicSqlite musicSqlite = new MusicSqlite(context);
+                             musicSqlite.insertAccount(music);
+                             Intent intent = new Intent(context, ListMusicLove.class);
+
+                             context.startActivity(intent);
                             Toast.makeText(context, "them", Toast.LENGTH_SHORT).show();
                         }
                         return true;
