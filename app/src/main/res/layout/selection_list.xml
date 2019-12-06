@@ -7,13 +7,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".activity.TracksActivity">
+
     <TextView
-        android:textColor="#f00000"
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="520dp"
         android:text="Tinh yeu mau nang"
+        android:textColor="#f00000"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.432"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,9 +26,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
@@ -58,34 +63,22 @@
         android:layout_marginTop="24dp"
         android:onClick="onPlay"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintHorizontal_bias="0.416"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/seekBar"
         app:srcCompat="@android:drawable/ic_media_play" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvMusic"
-        android:layout_width="0dp"
-        android:layout_marginTop="8dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgPlay"
-        app:layout_constraintVertical_bias="1.0"/>
-
     <ImageView
-        android:onClick="onStop"
         android:id="@+id/imageView"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imgPlay"
-        app:layout_constraintTop_toTopOf="@+id/imgPlay"
+        android:onClick="onStop"
         android:src="@drawable/ic_stop_black_24dp"
-        android:tint="#625C5C"/>
+        android:tint="#625C5C"
+        app:layout_constraintStart_toEndOf="@+id/imgPlay"
+        app:layout_constraintTop_toTopOf="@+id/imgPlay" />
 
     <ImageView
         android:id="@+id/imgPre"
@@ -106,4 +99,13 @@
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="@+id/imageView"
         app:srcCompat="@android:drawable/ic_media_next" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMusic"
+        android:layout_width="360dp"
+        android:layout_height="500dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

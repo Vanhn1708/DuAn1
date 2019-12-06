@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -76,7 +77,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         int id = item.getItemId();
-                         if (id == R.id.tools) {
+                        if (id == R.id.tools) {
                             AlertDialog.Builder builder = new AlertDialog.Builder(context);
                             builder.setTitle("Xóa");
                             builder.setMessage("Bạn có muốn xóa không?");
@@ -98,11 +99,11 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
                             alertDialog.show();
 
                         } else if (id == R.id.tool1) {
-                             MusicSqlite musicSqlite = new MusicSqlite(context);
-                             musicSqlite.insertAccount(music);
-                             Intent intent = new Intent(context, ListMusicLove.class);
+                            MusicSqlite musicSqlite = new MusicSqlite(context);
+                            musicSqlite.insertAccount(music);
+                            Intent intent = new Intent(context, ListMusicLove.class);
 
-                             context.startActivity(intent);
+                            context.startActivity(intent);
                             Toast.makeText(context, "them", Toast.LENGTH_SHORT).show();
                         }
                         return true;
@@ -151,8 +152,11 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
     public void switchMusic(int position) {
     }
 
+    MediaPlayer mediaPlayer;
+
     private void deleteNote(int position) {
-//        sachDAO.deleteSachByID(list.get(position).getMaSach());
+
+        mediaPlayer.pause();
         list.remove(position);
         notifyDataSetChanged();
     }
