@@ -27,7 +27,7 @@ class LoveHolder extends RecyclerView.ViewHolder {
     public LoveHolder(@NonNull View itemView) {
         super(itemView);
         tvName = itemView.findViewById(R.id.tvName);
-        img1 = itemView.findViewById(R.id.img1);
+
         img2 = itemView.findViewById(R.id.img2);
     }
 }
@@ -59,34 +59,6 @@ public class LoveAdapter extends RecyclerView.Adapter<ArtistHolder> {
         final Song artist = list.get(position);
         holder.tvName.setText(artist.music);
 
-        //  holder.tvArtist.setText(artist.artist);
-
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                playMedia.onChangeMusic1(artist);
-//                id = position;
-//            }
-//        });
-
-//        imgPre.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (id != 0) {
-//                    playMedia.onChangeMusic1(list.get(id - 1));
-//                    id--;
-//                }
-//            }
-//        });
-//        imgNext.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                if (id < list.size() - 1) {
-//                    playMedia.onChangeMusic1(list.get(id + 1));
-//                    id++;
-//                }
-//            }
-//        });
     }
 
     @Override
