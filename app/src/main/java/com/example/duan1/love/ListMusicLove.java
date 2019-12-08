@@ -58,7 +58,7 @@ public class ListMusicLove extends AppCompatActivity {
         Log.e("size",musicList.size()+"");
         for (int i = 0; i<musicList.size();i++){
             Music music= new Music();
-            Log.e("name",      music.name = musicList.get(i).getName());
+            Log.e("name",      music.name = musicList.get(i).getMusic());
             Log.e("path",      music.name = musicList.get(i).getPath());
             Log.e("artit",      music.name = musicList.get(i).getArtist());
 

@@ -84,7 +84,7 @@ public class MusicSqlite extends SQLiteOpenHelper {
     public long insertAccount(com.example.duan1.model.Music music) {
         sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(name, music.getName());
+        contentValues.put(name, music.getMusic());
         contentValues.put(path, music.getPath());
         contentValues.put(artist, music.getArtist());
 
@@ -94,7 +94,11 @@ public class MusicSqlite extends SQLiteOpenHelper {
         return id;
     }
 
-
+    public int deleteSachByID(String maSach) {
+        int result = sqLiteDatabase.delete(DB_NAME, "maSach=?", new String[]{maSach});
+        if (result == 0) return -1;
+        return 1;
+    }
     public List<Music> musicList() {
 
         List<Music> list = new ArrayList<>();

@@ -69,7 +69,7 @@ public class ArtistListMusic extends AppCompatActivity {
                     String genre = md.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
                     Single single = new Single();
                     if (genre.equals(nameSinger)){
-                       String h=musicList.get(i).getName();
+                       String h=musicList.get(i).getMusic();
                         single.setGenre(h);
                         strings.add(single);
                     }else

@@ -10,14 +10,24 @@ public class Music {
         this.path = path;
         this.artist = artist;
     }
+
     public Music() {
     }
-    public String getName() {
+
+    public String music() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getMusic() {
+        return name;
+    }
+
+    public void setMusic(String music) {
+        this.name = music;
+    }
+
+    public void setName(String music) {
+        this.name = music;
     }
 
     public String getPath() {

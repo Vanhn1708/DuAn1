@@ -1,10 +1,8 @@
 package com.example.duan1.adapter;
 
-import android.app.AlertDialog;
+
+
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,28 +29,20 @@ public class LoveListAdapter extends RecyclerView.Adapter<LostListHolder> {
         this.context = context;
     }
 
-///
+    ///
     @NonNull
     @Override
     public LostListHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
 
         return new LostListHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LostListHolder holder, int position) {
-        final Music music = dataLoaiSaches.get(position);
-        holder.title1.setText(music.name);
-        holder.detail1.setText(music.artist);
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(context,music.name+"",Toast.LENGTH_LONG).show();
-                Toast.makeText(context,music.artist+"",Toast.LENGTH_LONG).show();
-            }
-        });
-
+    public void onBindViewHolder(@NonNull LostListHolder holder, final int position) {
+        final Music music1 = dataLoaiSaches.get(position);
+        holder.title1.setText(music1.name);
+        holder.detail1.setText(music1.artist);
 
     }
 
@@ -62,4 +52,8 @@ public class LoveListAdapter extends RecyclerView.Adapter<LostListHolder> {
         return dataLoaiSaches.size();
     }
 
+    private void deleteNote(int position) {
+        dataLoaiSaches.remove(position);
+        notifyDataSetChanged();
+    }
 }
