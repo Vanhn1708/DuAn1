@@ -47,6 +47,7 @@ public class ListMusicLove extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_music_love);
+        setTitle("Bài hát yêu thích");
         rccListLove = findViewById(R.id.rccListLove);
         rccListLove.setLayoutManager(new LinearLayoutManager(this));
         rccListLove.setHasFixedSize(true);

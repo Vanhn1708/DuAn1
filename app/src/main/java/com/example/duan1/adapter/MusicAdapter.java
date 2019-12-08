@@ -155,8 +155,6 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
     MediaPlayer mediaPlayer;
 
     private void deleteNote(int position) {
-
-        mediaPlayer.pause();
         list.remove(position);
         notifyDataSetChanged();
     }

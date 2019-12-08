@@ -76,6 +76,7 @@ public class LoveListAdapter extends RecyclerView.Adapter<LostListHolder> {
     }
 
     private void deleteNote(int position) {
+
         dataLoaiSaches.remove(position);
         notifyDataSetChanged();
     }
