@@ -1,8 +1,8 @@
 package com.example.duan1.adapter;
 
-
-
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,9 +41,32 @@ public class LoveListAdapter extends RecyclerView.Adapter<LostListHolder> {
     @Override
     public void onBindViewHolder(@NonNull LostListHolder holder, final int position) {
         final Music music1 = dataLoaiSaches.get(position);
-        holder.title1.setText(music1.name);
+        holder.title1.setText(music1.music);
         holder.detail1.setText(music1.artist);
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Xóa");
+                builder.setMessage("Bạn có muốn xóa không?");
+                builder.setCancelable(false);
+                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        deleteNote(position);
+                        Toast.makeText(context, "Delete", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
     }
 
 

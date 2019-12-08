@@ -1,12 +1,12 @@
 package com.example.duan1.model;
 
 public class Music {
-    public String name;
+    public String music;
     public String path;
     public String artist;
 
-    public Music(String name, String path, String artist) {
-        this.name = name;
+    public Music(String music, String path, String artist) {
+        this.music = music;
         this.path = path;
         this.artist = artist;
     }
@@ -15,19 +15,19 @@ public class Music {
     }
 
     public String music() {
-        return name;
+        return music;
     }
 
     public String getMusic() {
-        return name;
+        return music;
     }
 
     public void setMusic(String music) {
-        this.name = music;
+        this.music = music;
     }
 
     public void setName(String music) {
-        this.name = music;
+        this.music = music;
     }
 
     public String getPath() {

@@ -24,7 +24,6 @@ import com.example.duan1.MusicSqlite;
 import com.example.duan1.R;
 
 
-
 import com.example.duan1.adapter.LoveListAdapter;
 import com.example.duan1.adapter.MusicAdapter;
 import com.example.duan1.model.Artists;
@@ -39,7 +38,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ListMusicLove extends AppCompatActivity {
     private RecyclerView rccListLove;
-    private MusicSqlite musicSqlite ;
+    private MusicSqlite musicSqlite;
     private List<Music> musicList;
     private LoveListAdapter listMusicAdapter;
 
@@ -55,17 +54,17 @@ public class ListMusicLove extends AppCompatActivity {
         musicSqlite = new MusicSqlite(this);
 
         musicList = musicSqlite.musicList();
-        Log.e("size",musicList.size()+"");
-        for (int i = 0; i<musicList.size();i++){
-            Music music= new Music();
-            Log.e("name",      music.name = musicList.get(i).getMusic());
-            Log.e("path",      music.name = musicList.get(i).getPath());
-            Log.e("artit",      music.name = musicList.get(i).getArtist());
+        Log.e("size", musicList.size() + "");
+        for (int i = 0; i < musicList.size(); i++) {
+            Music music1 = new Music();
+            Log.e("name", music1.music = musicList.get(i).getMusic());
+            Log.e("path", music1.music = musicList.get(i).getPath());
+            Log.e("artit", music1.music = musicList.get(i).getArtist());
 
         }
 
-        if (musicList != null){
-            listMusicAdapter = new LoveListAdapter(musicList,this,musicSqlite);
+        if (musicList != null) {
+            listMusicAdapter = new LoveListAdapter(musicList, this, musicSqlite);
             rccListLove.setAdapter(listMusicAdapter);
 
         }

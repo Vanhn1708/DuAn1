@@ -64,9 +64,9 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MusicHolder holder, final int position) {
-        final Music music = list.get(position);
-        holder.title.setText(music.name);
-        holder.detail.setText(music.artist);
+        final Music music1 = list.get(position);
+        holder.title.setText(music1.music);
+        holder.detail.setText(music1.artist);
         holder.popupMenuBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +100,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
 
                         } else if (id == R.id.tool1) {
                             MusicSqlite musicSqlite = new MusicSqlite(context);
-                            musicSqlite.insertAccount(music);
+                            musicSqlite.insertAccount(music1);
                             Intent intent = new Intent(context, ListMusicLove.class);
 
                             context.startActivity(intent);
@@ -115,7 +115,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                playMedia.onChangeMusic(music);
+                playMedia.onChangeMusic(music1);
                 id = position;
             }
         });

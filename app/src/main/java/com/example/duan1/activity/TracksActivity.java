@@ -83,7 +83,7 @@ public class TracksActivity extends AppCompatActivity {
                                     mediaPlayer.release();
                                 }
                                 isPlaying = false;
-                                tvName.setText(music.name);
+                                tvName.setText(music.music);
                                 mediaPlayer = new MediaPlayer();
                                 mediaPlayer.setDataSource(music.path);
                                 mediaPlayer.prepare();

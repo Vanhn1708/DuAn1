@@ -111,12 +111,12 @@ public class MusicSqlite extends SQLiteOpenHelper {
             if (cursor.getCount() > 0) {
                 cursor.moveToFirst();
                 while (!cursor.isAfterLast()) {
-                    Music music = new Music();
-                    music.name = cursor.getString(cursor.getColumnIndex(name));
-                    music.path = cursor.getString(cursor.getColumnIndex(path));
-                    music.artist = cursor.getString(cursor.getColumnIndex(artist));
+                    Music music1 = new Music();
+                    music1.music = cursor.getString(cursor.getColumnIndex(name));
+                    music1.path = cursor.getString(cursor.getColumnIndex(path));
+                    music1.artist = cursor.getString(cursor.getColumnIndex(artist));
 
-                    list.add(music);
+                    list.add(music1);
                     cursor.moveToNext();
 
                 }
