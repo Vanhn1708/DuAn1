@@ -57,7 +57,7 @@ public class LoveAdapter extends RecyclerView.Adapter<ArtistHolder> {
     @Override
     public void onBindViewHolder(@NonNull ArtistHolder holder, final int position) {
         final Song artist = list.get(position);
-        holder.tvName.setText(artist.name);
+        holder.tvName.setText(artist.music);
 
         //  holder.tvArtist.setText(artist.artist);
 

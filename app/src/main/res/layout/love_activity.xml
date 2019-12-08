@@ -12,7 +12,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginBottom="212dp"
+        android:layout_marginBottom="68dp"
         android:src="@drawable/music1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,38 +20,26 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:textStyle="bold"
         android:layout_width="123dp"
         android:layout_height="122dp"
-        android:layout_marginBottom="304dp"
+        android:layout_marginBottom="168dp"
         android:text="Bài hát"
         android:textColor="#26C6DA"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/imgsinger"
-        app:layout_constraintHorizontal_bias="0.753"
+        app:layout_constraintHorizontal_bias="0.883"
         app:layout_constraintStart_toStartOf="@+id/imgsinger" />
 
     <ImageView
-
         android:id="@+id/imglbum"
         android:layout_width="230dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginBottom="120dp"
-        android:src="@drawable/album"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:layout_width="123dp"
-        android:layout_height="122dp"
-        android:text="Album"
-        android:textColor="#26C6DA"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imglbum"
-        app:layout_constraintHorizontal_bias="0.859"
-        app:layout_constraintStart_toStartOf="@+id/imglbum" />
 </androidx.constraintlayout.widget.ConstraintLayout>
