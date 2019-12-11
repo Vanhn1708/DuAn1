@@ -47,6 +47,7 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
     PlayMedia playMedia;
     ImageView imgPre, imgNext;
 
+
     public MusicAdapter(Context context, List<Music> list, ImageView imgPre, ImageView imgNext) {
         this.context = context;
         this.list = list;
@@ -152,10 +153,9 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicHolder> {
     public void switchMusic(int position) {
     }
 
-    MediaPlayer mediaPlayer;
 
     private void deleteNote(int position) {
-        list.remove(position);
+       list.remove(position);
         notifyDataSetChanged();
     }
 }

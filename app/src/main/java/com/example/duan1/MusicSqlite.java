@@ -95,8 +95,9 @@ public class MusicSqlite extends SQLiteOpenHelper {
     }
 
     public void Delete(String path) {
-        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        sqLiteDatabase.delete(Music, this.path, new String[]{String.valueOf(path)});
+        sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.delete(Music, this.path + " = ?",
+                new String[]{String.valueOf(path)});
         sqLiteDatabase.close();
     }
 

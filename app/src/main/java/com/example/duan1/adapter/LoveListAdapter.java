@@ -53,7 +53,7 @@ public class LoveListAdapter extends RecyclerView.Adapter<LostListHolder> {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        deleteNote(position);
+                        deleteNote(music1.getPath());
                         Toast.makeText(context, "Delete", Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -75,9 +75,8 @@ public class LoveListAdapter extends RecyclerView.Adapter<LostListHolder> {
         return dataLoaiSaches.size();
     }
 
-    private void deleteNote(int position) {
-        bookDatabaseHelper.Delete(dataLoaiSaches.get(position).getPath());
-        dataLoaiSaches.remove(position);
+    private void deleteNote(String path) {
+        bookDatabaseHelper.Delete(path);
         notifyDataSetChanged();
     }
 }

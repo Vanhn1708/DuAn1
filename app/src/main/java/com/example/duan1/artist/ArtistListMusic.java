@@ -58,7 +58,6 @@ public class ArtistListMusic extends AppCompatActivity {
         }
 
         for (int i = 0; i < musicList.size(); i++) {
-
             try {
                 MediaMetadataRetriever md = new MediaMetadataRetriever();
                 Log.e("errpe", musicList.get(i).getPath());
@@ -75,8 +74,6 @@ public class ArtistListMusic extends AppCompatActivity {
                         strings.add(single);
                     }else
                         continue;
-
-
                 }
 
             } catch (IllegalArgumentException e) {
