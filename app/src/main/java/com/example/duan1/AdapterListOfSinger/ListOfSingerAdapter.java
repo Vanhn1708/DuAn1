@@ -1,6 +1,9 @@
 package com.example.duan1.AdapterListOfSinger;
 
 import android.content.Context;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +21,7 @@ public class ListOfSingerAdapter  extends RecyclerView.Adapter<HolderListOfSinge
 
     private Context context;
     private List<Single> strings;
+    private MediaPlayer mediaPlayer;
 
     public ListOfSingerAdapter(Context context, List<Single> strings) {
         this.context = context;
@@ -32,11 +36,18 @@ public class ListOfSingerAdapter  extends RecyclerView.Adapter<HolderListOfSinge
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HolderListOfSinger holder, int position) {
-        Single s = strings.get(position);
+    public void onBindViewHolder(@NonNull HolderListOfSinger holder, final int position) {
+        final Single s = strings.get(position);
         holder.tvNamSongg.setText(s.getGenre());
-
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               mediaPlayer = new MediaPlayer();
+                Uri uri= Uri.parse("file:///"+s.getPath());
+               mediaPlayer  = MediaPlayer.create(context,uri);
+                mediaPlayer.start();
+            }
+        });
     }
 
     @Override

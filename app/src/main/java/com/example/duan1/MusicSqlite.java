@@ -26,10 +26,10 @@ public class MusicSqlite extends SQLiteOpenHelper {
     private Context context;
     private SQLiteDatabase sqLiteDatabase;
 
-    private String Music ="Music";
-    private String name ="name";
-    private String path ="path";
-    private String artist ="artist";
+    private String Music = "Music";
+    private String name = "name";
+    private String path = "path";
+    private String artist = "artist";
 
 
     public MusicSqlite(@Nullable Context context) {
@@ -81,7 +81,7 @@ public class MusicSqlite extends SQLiteOpenHelper {
         mInput.close();
     }
 
-    public long insertAccount( Music music) {
+    public long insertAccount(Music music) {
         sqLiteDatabase = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(name, music.getMusic());
@@ -94,6 +94,11 @@ public class MusicSqlite extends SQLiteOpenHelper {
         return id;
     }
 
+    public void Delete(String path) {
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.delete(Music, this.path, new String[]{String.valueOf(path)});
+        sqLiteDatabase.close();
+    }
 
     public List<Music> musicList() {
 

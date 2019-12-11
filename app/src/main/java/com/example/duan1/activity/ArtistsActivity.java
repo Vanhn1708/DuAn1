@@ -94,31 +94,7 @@ public class ArtistsActivity extends AppCompatActivity {
         }
     }
 
-//    private void initView() {
-//        tvName = findViewById(R.id.tvName);
-//        seekBar = findViewById(R.id.seekBar);
-//        tvStart = findViewById(R.id.tvStart);
-//        tvEnd = findViewById(R.id.tvEnd);
-//        imgPlay = findViewById(R.id.imgPlay);
-//        seekBar.setEnabled(false);
-//        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-//            @Override
-//            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-//                tvStart.setText(miliesToString(progress));
-//            }
-//
-//            @Override
-//            public void onStartTrackingTouch(SeekBar seekBar) {
-//
-//            }
-//
-//            @Override
-//            public void onStopTrackingTouch(SeekBar seekBar) {
-//                mediaPlayer.seekTo(seekBar.getProgress());
-//                startTime = seekBar.getProgress();
-//            }
-//        });
-//    }
+
 
     private double startTime, finalTime;
 

@@ -71,6 +71,7 @@ public class ArtistListMusic extends AppCompatActivity {
                     if (genre.equals(nameSinger)){
                        String h=musicList.get(i).getMusic();
                         single.setGenre(h);
+                        single.setPath(musicList.get(i).getPath());
                         strings.add(single);
                     }else
                         continue;
